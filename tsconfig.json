@@ -10,7 +10,7 @@
         "declaration": true
     },
     "exclude": [
-        "node_modules",
-        "typings/main"
+        "node_modules/",
+        "typings/"
     ]
 }

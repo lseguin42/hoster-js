@@ -6,6 +6,7 @@
   "typings": "lib/hoster.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublish": "rm -rf lib && tsc"
   },
   "repository": {
     "type": "git",

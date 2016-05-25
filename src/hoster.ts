@@ -21,7 +21,7 @@ export interface IDebrid
  */
 export abstract class Hoster
 {
-    domain:   string;
+    
     username: string;
     password: string;
     jar:      request.CookieJar;
@@ -29,8 +29,7 @@ export abstract class Hoster
     isReady:  Q.Promise<void>;
     isBanned: boolean;
     
-    constructor(domain: string, username: string, password: string) {
-        this.domain = domain;
+    constructor(username: string, password: string) {
         this.username = username;
         this.password = password;
         this.clearCookies();
@@ -38,7 +37,7 @@ export abstract class Hoster
     }
     
     cookieString() {
-        return this.jar.getCookieString(this.domain);
+        return this.jar.getCookieString(this.domain());
     }
     
     clearCookies() {
@@ -59,6 +58,16 @@ export abstract class Hoster
         return this.isReady;
     }
     
+    supported(link: string) {
+        if (!link.match(this.regex()))
+            return false;
+        return true;
+    }
+    
+    abstract domain(): string;
+    
+    abstract regex(): RegExp;
+    
     abstract connect(): Q.Promise<void>;
     
     abstract debrid(link: string): Q.Promise<IDebrid>;
@@ -71,7 +80,15 @@ export abstract class Hoster
 export class Uptobox extends Hoster {
 
     constructor(username: string, password: string) {
-        super('https://uptobox.com/', username, password);
+        super(username, password);
+    }
+
+    domain() {
+        return 'uptobox.com';
+    }
+
+    regex() {
+        return /^(https?:\/\/)?(www.)?uptobox.com\/[0-9A-Za-z]{3,20}$/;
     }
 
     connect() {
