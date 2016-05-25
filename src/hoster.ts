@@ -34,6 +34,7 @@ export abstract class Hoster
         this.username = username;
         this.password = password;
         this.clearCookies();
+        this.connect();
     }
     
     cookieString() {
