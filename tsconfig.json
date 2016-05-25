@@ -5,9 +5,11 @@
         "noImplicitAny": true,
         "removeComments": true,
         "preserveConstEnums": true,
+        "noResolve": true,
         "outDir": "lib",
         "sourceMap": true,
-        "declaration": true
+        "declaration": true,
+        "noLib": false
     },
     "exclude": [
         "node_modules/",
