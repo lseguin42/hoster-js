@@ -1,0 +1,10 @@
+{
+  "name": "hoster-js",
+  "dependencies": {},
+  "globalDependencies": {
+    "form-data": "registry:dt/form-data#0.0.0+20160316155526",
+    "node": "registry:dt/node#6.0.0+20160524002506",
+    "q": "registry:dt/q#0.0.0+20160417152954",
+    "request": "registry:dt/request#0.0.0+20160524135346"
+  }
+}
