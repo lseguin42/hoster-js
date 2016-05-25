@@ -1,0 +1,21 @@
+{
+  "version": "v4",
+  "repo": "borisyankov/DefinitelyTyped",
+  "ref": "master",
+  "path": "typings",
+  "bundle": "typings/tsd.d.ts",
+  "installed": {
+    "q/Q.d.ts": {
+      "commit": "b9989e602b3225d48aa4a9dfa0631ae41fea100d"
+    },
+    "request/request.d.ts": {
+      "commit": "b9989e602b3225d48aa4a9dfa0631ae41fea100d"
+    },
+    "node/node.d.ts": {
+      "commit": "b9989e602b3225d48aa4a9dfa0631ae41fea100d"
+    },
+    "form-data/form-data.d.ts": {
+      "commit": "b9989e602b3225d48aa4a9dfa0631ae41fea100d"
+    }
+  }
+}

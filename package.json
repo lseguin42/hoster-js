@@ -1,0 +1,24 @@
+{
+  "name": "hoster-js",
+  "version": "1.0.0",
+  "description": "class hoster js",
+  "main": "lib/hoster.js",
+  "typings": "lib/hoster.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lseguin42/hoster-js.git"
+  },
+  "author": "Lionel Seguin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lseguin42/hoster-js/issues"
+  },
+  "homepage": "https://github.com/lseguin42/hoster-js#readme",
+  "dependencies": {
+    "q": "^1.4.1",
+    "request": "^2.72.0"
+  }
+}
