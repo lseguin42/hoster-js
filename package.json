@@ -1,12 +1,12 @@
 {
   "name": "hoster-js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "class hoster js",
   "main": "lib/hoster.js",
   "typings": "lib/hoster.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-    "prepublish": "rm -rf lib && tsc"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "rm -rf lib && tsd install && tsc"
   },
   "repository": {
     "type": "git",
