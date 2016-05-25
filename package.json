@@ -1,6 +1,6 @@
 {
   "name": "hoster-js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "class hoster js",
   "main": "lib/hoster.js",
   "typings": "lib/hoster.d.ts",
