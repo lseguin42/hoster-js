@@ -80,12 +80,8 @@ module hoster {
      */
     export class Uptobox extends Hoster {
 
-        constructor(username: string, password: string) {
-            super(username, password);
-        }
-
         domain() {
-            return 'uptobox.com';
+            return 'http://uptobox.com';
         }
 
         regex() {
