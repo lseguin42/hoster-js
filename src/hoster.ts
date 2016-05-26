@@ -4,6 +4,8 @@ import Q       = require('q');
 import request = require('request');
 import path    = require('path');
 import url     = require('url');
+import source  = require('vinyl-source-stream');
+import through = require('through2');
 
 module hoster {
     /**
@@ -15,6 +17,11 @@ module hoster {
         size:     number;
         download: string;
         cookies:  string;
+    }
+    
+    export interface IDownloadOptions
+    {
+        vinylMode?: boolean;
     }
 
     /**
@@ -65,13 +72,27 @@ module hoster {
             return true;
         }
         
+        download(link: string, options: IDownloadOptions = { vinylMode: true }): NodeJS.ReadWriteStream {
+            var res = (options.vinylMode ? through.obj() : through());
+            
+            this.info(link).then((data) => {
+                var req: NodeJS.ReadWriteStream = <any>this.request(data.download);
+                if (options.vinylMode)
+                    req = req.pipe(source(data.filename));
+                req.pipe(res);
+            }, (err) => {
+                res.emit('error', err);
+            });
+            return res;
+        }
+        
         abstract domain(): string;
         
         abstract regex(): RegExp;
         
         abstract connect(): Q.Promise<void>;
         
-        abstract debrid(link: string): Q.Promise<IDebrid>;
+        abstract info(link: string): Q.Promise<IDebrid>;
 
     }
 
@@ -110,7 +131,7 @@ module hoster {
             return this.isReady;
         }
         
-        debrid(link: string) {
+        info(link: string) {
             var deferred = Q.defer<IDebrid>();
             var nbRetry = 1;
             var onConnexionReady: any;
